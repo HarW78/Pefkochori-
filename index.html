@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Willkommen in Pefkochori</title>
+  <style>
+    :root {
+      --bg: #f8fafc;
+      --panel: #ffffff;
+      --panel-2: #f3f5f9;
+      --text: #151823;
+      --muted: #596071;
+      --link: #3157d8;
+      --link-hover: #4466e4;
+      --accent: #0aa86f;
+      --border: #e6ebf3;
+      --shadow: 0 8px 24px rgba(16,24,40,.08);
+      --radius: 12px;
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font: 16px/1.6 system-ui, sans-serif;
+      color: var(--text);
+      background: var(--bg);
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: 240px 1fr;
+      gap: 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    header {
+      grid-column: 1 / -1;
+      background: var(--panel-2);
+      border-radius: var(--radius);
+      padding: 20px;
+      box-shadow: var(--shadow);
+    }
+
+    aside.toc {
+      position: sticky;
+      top: 80px;
+      align-self: start;
+      background: var(--panel);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 15px;
+    }
+
+    .toc h2 { font-size: 14px; margin: 0 0 10px; color: var(--muted); }
+    .toc h3 { font-size: 12px; margin: 0 0 10px; color: var(--muted); }
+    .toc ul { list-style: none; margin: 0; padding: 0; }
+    .toc li { margin: 5px 0; }
+    .toc a {
+      text-decoration: none;
+      color: var(--link);
+      padding: 6px 8px;
+      border-radius: 8px;
+      display: block;
+    }
+    .toc a:hover { background: var(--panel-2); color: var(--link-hover); }
+    .toc a.active { background: var(--link); color: white; }
+
+    main {
+      background: var(--panel);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 20px;
+    }
+
+    section { scroll-margin-top: 80px; margin-bottom: 40px; }
+    h2 { margin-top: 0; }
+    
+    @media (max-width: 800px) {
+      .layout { grid-template-columns: 1fr; }
+      aside.toc { position: static; }
+    }
+  </style>
+</head>
+<body>
+  <div class="layout">
+    <header>
+      <h1>Willkommen in Pefkochori</h1>
+      <p>Sammlung von Informationen rund um die Wohnungen in Pefkochori</p>
+    </header>
+
+    <aside class="toc">
+      <h2>Inhalt</h2>
+      <ul>
+        <li><a href="#Wasseruhren">Wasseruhren</a></li>
+        <li><a href="#Waschmaschine">Waschmaschine</a></li>
+        <li><a href="#Klimanalage">Klimaanlagen</a></li>
+        <li><a href="#Telefonnummern">Hilfreiche Telefonnummern</a></li>
+        <li><a href="#Saisonende">Abreise / Ende der Saison</a></li>
+      </ul>
+    </aside>
+
+    <main>
+      <section id="Wasseruhren">
+        <h2>Wasseruhren</h2>
+        <p>Wasseruhren wurden 2025 erneuert und neu beschriftet:</p>
+           <p>   o	Nr. 7: Wohnung Franz</p> 
+           <p>   o	Nr. 9: Wohnung Thomas</p> 
+           <p>   o	Nr. 10: Wohnung Hans</p>
+      </section>
+
+      <section id="Waschmaschine">
+        <h2>Waschmaschine</h2>
+        <p>Link zur Bedienungsanleitung</p>
+      </section>
+
+      <section id="Klimaanlage">
+        <h2>Klimaanlagen</h2>
+           <p> Steuerplatine wurde 2025 in Wohnung Thomas erneuert.</p> 
+           <p> Weitere Ersatzplatine befindet sich in Wohnung Hans.</p> 
+           <p> Link zur Bedienungsanleitung</p>
+      </section>
+
+      <section id="Telefonnummern">
+        <h2>Hilfreiche Telefonnummern</h2>
+        <h3>ALEXI (Hausmeister) – spricht nur albanisch / griechisch </h3>
+        <a href="tel:+306946767489">+30 694 6767489</a>
+        <h3>Tsourekas Georg </h3>
+        <a href="tel:+306944846974">+30 694 4846974</a>
+        <h3>Soultsas Christos (Klimaanlagen - Techniker) </h3>
+        <a href="tel:+306970026666">+30 697 0026666</a>
+        <h3>Korosiadis Theo (Pella House Hotel GR) – spricht Deutsch </h3>
+        <a href="tel:+306984831771">+30 698 4831771</a>
+        <h3>Weitere Nummern:</h3>
+        <p>Handwerker auf Empfehlung von Pella House</p>
+        <img src="bilder/Telefonnummern.jpg" alt="Telefonnummern" style="max-width:100%;height:auto;">
+ 
+      
+      </section>
+
+      <section id="Saisonende">
+          <h2>An ALLE zum Ende der Saison</h2>
+          <ul>
+            <li>Alle Türln und Laden öffnen</li>
+            <li>Fenster im BAD/WC kippen
+              <ul>
+                <li>In Wohnung „Hans“ Küchenfenster kippen (im Bad gibt es kein Fenster)</li>
+              </ul>
+            </li>
+            <li>Innentüren offenlassen</li>
+            <li>Kühlschrank total leeren, auswischen und Tiefkühltürl und Schranktür geöffnet lassen</li>
+            <li>Fliegengitter von Eingangstür aushängen und in die Wohnung stellen</li>
+            <li>ALLE Wasserhähne öffnen, dann unten
+              <ul>
+                <li>Den Hauptwasserhahn schließen
+                  <ul>
+                    <li>In Wohnung „Hans“ gibt es im Bad unter dem Waschbecken einen zusätzlichen Hauptwasserhahn – diesen ebenfalls schließen.</li>
+                  </ul>
+                </li>
+                <li>Die Wasserhähne in den Wohnungen wieder schließen</li>
+                <li>In Wohnung „Hans“ sind im Bad und in der Küche neue Eckventile verbaut (2× Küche, 3× Bad). Diese ebenfalls mehrfach betätigen, aber am Ende geöffnet lassen.</li>
+              </ul>
+            </li>
+            <li>E-Hauptschalter ausschalten</li>
+            <li>Matratzen aufstellen</li>
+            <li>Waschmaschine – Türl geöffnet lassen</li>
+            <li>Batterien aus Fernbedienungen (TV, Klimaanlage, …) herausgeben.</li>
+          </ul>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    // aktiven Link hervorheben
+    const tocLinks = document.querySelectorAll('.toc a');
+    const sections = [...tocLinks].map(a => document.querySelector(a.getAttribute('href')));
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        const id = entry.target.getAttribute('id');
+        const link = document.querySelector('.toc a[href="#' + id + '"]');
+        if (entry.isIntersecting) {
+          tocLinks.forEach(l => l.classList.remove('active'));
+          if (link) link.classList.add('active');
+        }
+      });
+    }, { rootMargin: "0px 0px -60% 0px", threshold: 0.1 });
+
+    sections.forEach(sec => observer.observe(sec));
+  </script>
+</body>
+</html>
