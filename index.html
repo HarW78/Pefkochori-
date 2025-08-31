@@ -233,6 +233,13 @@
     }, { rootMargin: "0px 0px -60% 0px", threshold: 0.1 });
 
     sections.forEach(sec => observer.observe(sec));
+
+    // Menü automatisch schließen, wenn ein Link angeklickt wird
+    document.querySelectorAll('.toc a').forEach(link => {
+      link.addEventListener('click', () => {
+        document.querySelector('.toc').classList.remove('open');
+      });
+    });
   </script>
 </body>
 </html>
