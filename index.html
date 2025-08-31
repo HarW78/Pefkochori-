@@ -68,6 +68,20 @@
     .toc a:hover { background: var(--panel-2); color: var(--link-hover); }
     .toc a.active { background: var(--link); color: white; }
 
+    /* Menü-Button (Hamburger) – nur mobil sichtbar */
+    .menu-toggle {
+      display: none;
+      position: fixed;
+      top: 1rem;
+      left: 1rem;
+      background: #333;
+      color: white;
+      border: none;
+      padding: 0.5rem 0.75rem;
+      border-radius: 4px;
+      z-index: 1000;
+    }
+    
     main {
       background: var(--panel);
       border-radius: var(--radius);
