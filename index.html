@@ -27,6 +27,7 @@
       background: var(--bg);
     }
 
+    /* Desktop-Layout: Sidebar links */
     .layout {
       display: grid;
       grid-template-columns: 240px 1fr;
@@ -81,7 +82,31 @@
       border-radius: 4px;
       z-index: 1000;
     }
-    
+    /* Mobile: Sidebar verstecken, Button zeigen */
+    @media (max-width: 900px) {
+      .layout {
+        grid-template-columns: 1fr;
+      }
+      nav.toc {
+        position: fixed;
+        top: 0;
+        left: -260px; /* außerhalb vom Bildschirm */
+        width: 240px;
+        height: 100%;
+        background: #f0f0f0;
+        box-shadow: 2px 0 5px rgba(0,0,0,0.2);
+        transition: left 0.3s ease;
+      }
+      nav.toc.open {
+        left: 0;
+      }
+      .menu-toggle {
+        display: block;
+      }
+      main.content {
+        padding: 2rem 1rem;
+      }
+      
     main {
       background: var(--panel);
       border-radius: var(--radius);
@@ -99,6 +124,11 @@
   </style>
 </head>
 <body>
+  <!-- Hamburger-Button -->
+  <button class="menu-toggle" onclick="document.querySelector('nav.toc').classList.toggle('open')">
+    ☰ Menü
+  </button>
+  
   <div class="layout">
     <header>
       <h1>Willkommen in Pefkochori</h1>
