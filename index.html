@@ -153,6 +153,26 @@
            <p>   o	Nr. 7: Wohnung Franz</p> 
            <p>   o	Nr. 9: Wohnung Thomas</p> 
            <p>   o	Nr. 10: Wohnung Hans</p>
+        <div class="gallery">
+          <img src="bilder/Wasseruhr1.jpg" alt="Foto 1">
+          <img src="bilder/Wasseruhr2.jpg" alt="Foto 2">
+          <img src="bilder/Wasseruhr3.jpg" alt="Foto 3">
+        </div>
+
+        <style>
+        .gallery {
+          display: flex;
+          overflow-x: auto;
+          scroll-snap-type: x mandatory;
+          gap: 10px;
+        }
+        .gallery img {
+          flex: 0 0 100%;
+          height: auto;
+          scroll-snap-align: center;
+          border-radius: 10px;
+        }
+        </style>
       </section>
 
       <section id="Waschmaschine">
