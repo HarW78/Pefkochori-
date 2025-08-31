@@ -218,7 +218,7 @@
 
   <script>
     // aktiven Link hervorheben
-    const tocLinks = document.querySelectorAll('.toc a');
+/*    const tocLinks = document.querySelectorAll('.toc a');
     const sections = [...tocLinks].map(a => document.querySelector(a.getAttribute('href')));
 
     const observer = new IntersectionObserver((entries) => {
@@ -233,7 +233,7 @@
     }, { rootMargin: "0px 0px -60% 0px", threshold: 0.1 });
 
     sections.forEach(sec => observer.observe(sec));
-
+*/
     // Menü automatisch schließen, wenn ein Link angeklickt wird
     document.querySelectorAll('.toc a').forEach(link => {
       link.addEventListener('click', () => {
