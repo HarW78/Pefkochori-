@@ -153,37 +153,6 @@ oh<!doctype html>
            <p>   o	Nr. 7: Wohnung Franz</p> 
            <p>   o	Nr. 9: Wohnung Thomas</p> 
            <p>   o	Nr. 10: Wohnung Hans</p>
-        
-        <div class="gallery">
-          <img src="bilder/Wasseruhr1.jpeg" alt="Foto 1">
-          <img src="bilder/Wasseruhr2.jpeg" alt="Foto 2">
-          <img src="bilder/Wasseruhr7.jpeg" alt="Foto 3">
-          <img src="bilder/Wasseruhr8.jpeg" alt="Foto 4">
-          <img src="bilder/Wasseruhr5.jpeg" alt="Foto 5">
-          <img src="bilder/Wasseruhr6.jpeg" alt="Foto 6">
-          <img src="bilder/Wasseruhr3.jpeg" alt="Foto 7">
-          <img src="bilder/Wasseruhr4.jpeg" alt="Foto 8">
-        </div>
-
-        <style>
-        .gallery {
-          display: flex;
-          flex-wrap: nowrap;
-          overflow-x: auto;
-          scroll-snap-type: x mandatory;
-          -webkit-overflow-scrolling: touch;
-          gap: 0;                 /* keine Lücke zwischen Slides */
-          touch-action: pan-x;    /* hilft mobilen Browsern */
-        }
-        
-        .gallery img {
-          flex: 0 0 50%;         /* jede Slide = 100% Breite des Containers */
-          width: 50%;
-          height: auto;           /* kein Verzerren */
-          scroll-snap-align: start;
-          display: block;
-        }
-        </style>
 
         <!-- Swiper CSS laden -->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
