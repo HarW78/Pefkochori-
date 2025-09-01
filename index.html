@@ -168,21 +168,21 @@ oh<!doctype html>
         <style>
         .gallery {
           display: flex;
-          flex-wrap: nowrap;             /* NICHT umbrechen */
+          flex-wrap: nowrap;
           overflow-x: auto;
           scroll-snap-type: x mandatory;
-          -webkit-overflow-scrolling: touch; /* flüssig auf iOS */
-          gap: 10px;
+          -webkit-overflow-scrolling: touch;
+          gap: 0;                 /* keine Lücke zwischen Slides */
+          touch-action: pan-x;    /* hilft mobilen Browsern */
         }
+        
         .gallery img {
-          flex: 1;
-          height: auto;
-          max-width: 200px;   /* Bild nie größer als 400px */
-          scroll-snap-align: center;
-          object-fit: cover;
-          border-radius: 10px;
+          flex: 0 0 100%;         /* jede Slide = 100% Breite des Containers */
+          width: 100%;
+          height: auto;           /* kein Verzerren */
+          scroll-snap-align: start;
+          display: block;
         }
-
         </style>
       </section>
 
