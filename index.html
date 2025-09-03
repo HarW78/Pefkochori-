@@ -154,78 +154,77 @@ oh<!doctype html>
            <p>   o	Nr. 9: Wohnung Thomas</p> 
            <p>   o	Nr. 10: Wohnung Hans</p>
 
-<!-- Swiper CSS -->
+
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
 
 <style>
-  /* Rahmen & Zentrierung */
   .gallery-wrap{
-    width: 100%;
-    max-width: 640px;          /* Desktopbreite der Galerie */
-    margin: 0 auto;
+    width:100%;
+    max-width:640px;   /* Desktop-Breite der Galerie */
+    margin:0 auto;
   }
 
-  /* Haupt-Slider */
+  /* Swiper-Container */
   .swiper.main{
-    position: relative;
-    overflow: visible;         /* damit Pfeile/Pagination nicht abgeschnitten werden */
-    border-radius: 12px;
+    position:relative;
+    overflow:hidden;           /* schneidet Nachbar-Slides sicher ab */
+    border-radius:12px;
   }
 
-  /* ========= WICHTIG: genau 1 Slide sichtbar ========= */
-  /* Diese Regeln überstimmen evtl. andere Styles in deiner Seite */
-  .swiper.main .swiper-wrapper{
-    /* Swiper setzt display:flex selbst – wir fassen es nicht an */
-  }
+  /* ***** WICHTIG: genau 1 Slide pro Ansicht ***** */
   .swiper.main .swiper-slide{
-    width: 100% !important;
-    max-width: 100% !important;
-    flex: 0 0 100% !important;   /* kein Grow/Shrink, volle Breite */
+    width:100% !important;
+    max-width:100% !important;
+    flex:0 0 100% !important;  /* kein Grow/Shrink, volle Breite */
   }
-  .swiper.main .swiper-slide img{
-    width: 100%;
-    height: auto;                /* kein Verzerren */
-    display: block;
-    object-fit: cover;
-    border-radius: 12px;
+  .swiper.main .swiper-wrapper{
+    gap:0 !important;          /* falls global irgendwo gap gesetzt ist */
   }
 
-  /* Zähler unter dem Bild, zentriert */
+  .swiper.main .swiper-slide img{
+    width:100%;
+    height:auto;
+    display:block;
+    object-fit:cover;
+    border-radius:12px;
+  }
+
+  /* Zähler unter dem Bild, wie „1 / n“ */
   .swiper.main .swiper-pagination{
-    position: static;            /* nimmt normalen Fluss ein */
-    margin-top: .5rem;
-    text-align: center;
+    position:static;
+    margin-top:.5rem;
+    text-align:center;
   }
   .swiper-pagination-fraction{
-    display: inline-block;
-    background: #f3f4f6;
-    padding: 2px 10px;
-    border-radius: 999px;
-    font-size: .95rem;
-    color: #111;
+    display:inline-block;
+    background:#f3f4f6;
+    padding:2px 10px;
+    border-radius:999px;
+    color:#111;
+    font-size:.95rem;
   }
 
-  /* Pfeile */
+  /* Pfeile (innen am Rand; optional unten für Desktop nach außen schieben) */
   .swiper-button-prev,
   .swiper-button-next{
-    color: #111;
-    width: 44px; height: 44px;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 10;
+    color:#111;
+    width:44px; height:44px;
+    top:50%;
+    transform:translateY(-50%);
+    z-index:10;
   }
 
-  /* Optional: Pfeile außen nur am Desktop */
-  @media (min-width: 701px){
-    .swiper-button-prev{ left: -56px; }
-    .swiper-button-next{ right: -56px; }
+  @media (min-width: 801px){
+    /* Optional: Pfeile außen am Desktop */
+    .swiper.main{ overflow:visible; }
+    .swiper-button-prev{ left:-56px; }
+    .swiper-button-next{ right:-56px; }
   }
 
-  /* Mobil kompakter */
-  @media (max-width: 700px){
-    .gallery-wrap{ max-width: 92%; }
-    .swiper-button-prev{ left: 8px; }
-    .swiper-button-next{ right: 8px; }
+  @media (max-width:800px){
+    .gallery-wrap{ max-width:92%; }
+    .swiper-button-prev{ left:8px; }
+    .swiper-button-next{ right:8px; }
   }
 </style>
 </head>
@@ -244,31 +243,24 @@ oh<!doctype html>
       <div class="swiper-slide"><img src="bilder/Wasseruhr4.jpeg" alt="Foto 8"></div>
     </div>
 
-    <!-- Zähler + Pfeile -->
     <div class="swiper-pagination"></div>
     <div class="swiper-button-prev" aria-label="Zurück"></div>
     <div class="swiper-button-next" aria-label="Weiter"></div>
   </div>
 </div>
 
-<!-- Swiper JS -->
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script>
   const main = new Swiper('.swiper.main', {
-    slidesPerView: 1,                 // exakt 1 Slide sichtbar
+    slidesPerView: 1,          // EXPLIZIT 1 Slide
+    centeredSlides: false,     // NICHT zentrieren (sonst sieht man Nachbarn)
     loop: false,
     speed: 400,
-    navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev'
-    },
-    pagination: {
-      el: '.swiper-pagination',
-      type: 'fraction'                // „1 / n“
-    }
+    navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
+    pagination: { el: '.swiper-pagination', type: 'fraction' }
   });
 </script>
-                
+</body>
       </section>
 
       <section id="Waschmaschine">
