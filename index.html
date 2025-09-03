@@ -205,14 +205,19 @@ oh<!doctype html>
   }
 
   /* Pfeile (innen am Rand; optional unten für Desktop nach außen schieben) */
+
   .swiper-button-prev,
-  .swiper-button-next{
-    color:#111;
-    width:44px; height:44px;
-    top:50%;
-    transform:translateY(-50%);
-    z-index:10;
-  }
+  .swiper-button-next {
+  color: #111;
+  width: 44px; height: 44px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+}
+
+/* Pfeile optisch etwas nach außen verschieben, aber innerhalb des Containers */
+.swiper-button-prev { left: 0; transform: translate(-120%, -50%); }
+.swiper-button-next { right: 0; transform: translate(120%, -50%); }
 
   @media (min-width: 801px){
     /* Optional: Pfeile außen am Desktop */
