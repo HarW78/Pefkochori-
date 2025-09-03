@@ -153,61 +153,169 @@ oh<!doctype html>
            <p>   o	Nr. 7: Wohnung Franz</p> 
            <p>   o	Nr. 9: Wohnung Thomas</p> 
            <p>   o	Nr. 10: Wohnung Hans</p>
+<!-- Swiper CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
 
-        <!-- Swiper CSS laden -->
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-        
-        <!-- Galerie -->
-        <div class="swiper">
-          <div class="swiper-wrapper">
-            <div class="swiper-slide"><img src="bilder/Wasseruhr1.jpeg" alt="Foto 1"></div>
-            <div class="swiper-slide"><img src="bilder/Wasseruhr2.jpeg" alt="Foto 2"></div>
-            <div class="swiper-slide"><img src="bilder/Wasseruhr7.jpeg" alt="Foto 3"></div>
-            <div class="swiper-slide"><img src="bilder/Wasseruhr8.jpeg" alt="Foto 4"></div>
-            <div class="swiper-slide"><img src="bilder/Wasseruhr5.jpeg" alt="Foto 5"></div>
-            <div class="swiper-slide"><img src="bilder/Wasseruhr6.jpeg" alt="Foto 6"></div>
-            <div class="swiper-slide"><img src="bilder/Wasseruhr3.jpeg" alt="Foto 7"></div>
-            <div class="swiper-slide"><img src="bilder/Wasseruhr4.jpeg" alt="Foto 8"></div>
-          </div>
-          <!-- Navigation -->
-          <div class="swiper-pagination"></div>
-          <div class="swiper-button-prev"></div>
-          <div class="swiper-button-next"></div>
-        </div>
-        
-        <!-- Swiper JS laden -->
-        <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-        <script>
-          const swiper = new Swiper('.swiper', {
-            loop: true,                             // Endlosschleife
-            pagination: { el: '.swiper-pagination', clickable: true },
-            navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
-          });
-        </script>
-        
-        <style>
-          .swiper {
-            width: 100%;
-            max-width: 500px;
-            height: 300px;       /* fixe Höhe */
-          }
-          
-          .swiper-button-prev,
-          .swiper-button-next {
-            color: #333;           /* Pfeilfarbe */
-            width: 40px; height: 40px;
-          }
+<style>
+  /* Rahmen & Zentrierung */
+  .gallery-wrap{
+    width: 100%;
+    max-width: 600px;      /* Desktop-Größe */
+    margin: 0 auto;
+  }
 
-          /* links/rechts nach außen schieben */
-          .swiper-button-prev { left: -0px; }
-          .swiper-button-next { right: -0px; }
-          .swiper-slide img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;   /* Bild füllt den Rahmen, kein Verzerren */
-            border-radius: 10px;
-          }
-        </style>
+  /* Haupt-Slider */
+  .swiper.main {
+    position: relative;
+    overflow: visible;     /* damit Pfeile außen sichtbar sind */
+    border-radius: 12px;
+  }
+  .swiper.main .swiper-slide img{
+    width: 100%;
+    height: 360px;         /* einheitliche Höhe für ruhiges Layout */
+    object-fit: cover;     /* kein Verzerren */
+    display: block;
+    border-radius: 12px;
+  }
+
+  /* Bildunterschrift (Caption) */
+  .caption{
+    margin-top: .5rem;
+    font-size: .95rem;
+    line-height: 1.4;
+    color: #444;
+  }
+
+  /* Zähler (1 / n) unten rechts */
+  .swiper-pagination-fraction{
+    width: auto !important;
+    right: 0;
+    left: auto;
+    bottom: -28px;         /* unter dem Bild */
+    background: #f3f4f6;
+    padding: 2px 8px;
+    border-radius: 999px;
+    font-size: .85rem;
+    color: #111;
+  }
+
+  /* Pfeile außerhalb positionieren */
+  .swiper-button-prev,
+  .swiper-button-next{
+    color: #111;
+    width: 44px; height: 44px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+  }
+  .swiper-button-prev{ left: -56px; }
+  .swiper-button-next{ right: -56px; }
+
+  /* Thumbnails */
+  .swiper.thumbs{
+    margin-top: .75rem;
+    padding-bottom: 4px;
+  }
+  .swiper.thumbs .swiper-slide{
+    width: 90px;           /* fixe Kachelbreite */
+    height: 60px;
+    opacity: .5;
+    cursor: pointer;
+  }
+  .swiper.thumbs .swiper-slide-thumb-active{ opacity: 1; }
+  .swiper.thumbs .swiper-slide img{
+    width: 100%; height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+    display: block;
+  }
+
+  /* Responsiv: auf sehr schmalen Screens Pfeile innen halten und Höhe reduzieren */
+  @media (max-width: 600px){
+    .gallery-wrap{ max-width: 92%; }
+    .swiper.main .swiper-slide img{ height: 240px; }
+    .swiper-button-prev{ left: 8px; }
+    .swiper-button-next{ right: 8px; }
+    .swiper-pagination-fraction{ bottom: -24px; }
+  }
+</style>
+
+<div class="gallery-wrap">
+  <!-- Haupt-Slider -->
+  <div class="swiper main">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide">
+        <img src="bilder/Wasseruhr1.jpeg" alt="Foto 1">
+      </div>
+      <div class="swiper-slide">
+        <img src="bilder/Wasseruhr2.jpeg" alt="Foto 2">
+      </div>
+      <div class="swiper-slide">
+        <img src="bilder/Wasseruhr7.jpeg" alt="Foto 3">
+      </div>
+      <div class="swiper-slide">
+        <img src="bilder/Wasseruhr8.jpeg" alt="Foto 4">
+      </div>
+      <div class="swiper-slide">
+        <img src="bilder/Wasseruhr5.jpeg" alt="Foto 5">
+      </div>
+      <div class="swiper-slide">
+        <img src="bilder/Wasseruhr6.jpeg" alt="Foto 6">
+      </div>
+      <div class="swiper-slide">
+        <img src="bilder/Wasseruhr3.jpeg" alt="Foto 7">
+      </div>
+      <div class="swiper-slide">
+        <img src="bilder/Wasseruhr4.jpeg" alt="Foto 8">
+      </div>
+    </div>
+
+    <!-- Zähler + Pfeile -->
+    <div class="swiper-pagination"></div>
+    <div class="swiper-button-prev" aria-label="Zurück"></div>
+    <div class="swiper-button-next" aria-label="Weiter"></div>
+  </div>
+
+  <!-- Caption (optional pro Bild – hier ein statisches Beispieltext) -->
+  <div class="caption">
+    Wasseruhr-Dokumentation – wische/verwende Pfeile zum Blättern.
+  </div>
+
+  <!-- Thumbnail-Leiste -->
+  <div class="swiper thumbs">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide"><img src="bilder/Wasseruhr1.jpeg" alt=""></div>
+      <div class="swiper-slide"><img src="bilder/Wasseruhr2.jpeg" alt=""></div>
+      <div class="swiper-slide"><img src="bilder/Wasseruhr7.jpeg" alt=""></div>
+      <div class="swiper-slide"><img src="bilder/Wasseruhr8.jpeg" alt=""></div>
+      <div class="swiper-slide"><img src="bilder/Wasseruhr5.jpeg" alt=""></div>
+      <div class="swiper-slide"><img src="bilder/Wasseruhr6.jpeg" alt=""></div>
+      <div class="swiper-slide"><img src="bilder/Wasseruhr3.jpeg" alt=""></div>
+      <div class="swiper-slide"><img src="bilder/Wasseruhr4.jpeg" alt=""></div>
+    </div>
+  </div>
+</div>
+
+<!-- Swiper JS -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script>
+  // Thumbnails-Slider
+  const thumbs = new Swiper('.swiper.thumbs', {
+    slidesPerView: 'auto',
+    spaceBetween: 8,
+    freeMode: true,
+    watchSlidesProgress: true,
+  });
+
+  // Haupt-Slider
+  const main = new Swiper('.swiper.main', {
+    loop: false,
+    speed: 400,
+    navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
+    pagination: { el: '.swiper-pagination', type: 'fraction' }, // 1/8-Stil
+    thumbs: { swiper: thumbs },
+  });
+</script>
                 
       </section>
 
