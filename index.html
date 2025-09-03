@@ -161,20 +161,40 @@ oh<!doctype html>
   /* Rahmen & Zentrierung */
   .gallery-wrap{
     width: 100%;
-    max-width: 640px;     /* Desktop-Breite der Galerie */
+    max-width: 640px;          /* Desktopbreite der Galerie */
     margin: 0 auto;
   }
 
   /* Haupt-Slider */
-.swiper.main{ height: 360px; }
-.swiper.main .swiper-slide img{
-  width:100%; height:100%; object-fit:cover;
-}
+  .swiper.main{
+    position: relative;
+    overflow: visible;         /* damit Pfeile/Pagination nicht abgeschnitten werden */
+    border-radius: 12px;
+  }
 
-  /* Zähler „1 / n“ UNTER dem Bild, zentriert */
+  /* ========= WICHTIG: genau 1 Slide sichtbar ========= */
+  /* Diese Regeln überstimmen evtl. andere Styles in deiner Seite */
+  .swiper.main .swiper-wrapper{
+    /* Swiper setzt display:flex selbst – wir fassen es nicht an */
+  }
+  .swiper.main .swiper-slide{
+    width: 100% !important;
+    max-width: 100% !important;
+    flex: 0 0 100% !important;   /* kein Grow/Shrink, volle Breite */
+  }
+  .swiper.main .swiper-slide img{
+    width: 100%;
+    height: auto;                /* kein Verzerren */
+    display: block;
+    object-fit: cover;
+    border-radius: 12px;
+  }
+
+  /* Zähler unter dem Bild, zentriert */
   .swiper.main .swiper-pagination{
-    position: static;      /* nimmt normalen Fluss ein -> unter dem Bild */
+    position: static;            /* nimmt normalen Fluss ein */
     margin-top: .5rem;
+    text-align: center;
   }
   .swiper-pagination-fraction{
     display: inline-block;
@@ -185,26 +205,31 @@ oh<!doctype html>
     color: #111;
   }
 
-  /* Pfeile (innen am Rand; außen kannst du später wieder aktivieren) */
+  /* Pfeile */
   .swiper-button-prev,
   .swiper-button-next{
     color: #111;
     width: 44px; height: 44px;
     top: 50%;
     transform: translateY(-50%);
+    z-index: 10;
   }
 
-  /* Mobil etwas kompakter */
-  @media (max-width: 600px){
-    .gallery-wrap{ max-width: 92%; }
+  /* Optional: Pfeile außen nur am Desktop */
+  @media (min-width: 701px){
+    .swiper-button-prev{ left: -56px; }
+    .swiper-button-next{ right: -56px; }
   }
-  @media (min-width: 601px){
-  .swiper-button-prev{ left: -56px; }
-  .swiper-button-next{ right: -56px; }
-  .swiper.main{ overflow: visible; }
-}
-  
+
+  /* Mobil kompakter */
+  @media (max-width: 700px){
+    .gallery-wrap{ max-width: 92%; }
+    .swiper-button-prev{ left: 8px; }
+    .swiper-button-next{ right: 8px; }
+  }
 </style>
+</head>
+<body>
 
 <div class="gallery-wrap">
   <div class="swiper main">
@@ -230,17 +255,17 @@ oh<!doctype html>
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script>
   const main = new Swiper('.swiper.main', {
-    slidesPerView: 1,                     // genau 1 Bild pro Ansicht
+    slidesPerView: 1,                 // exakt 1 Slide sichtbar
     loop: false,
     speed: 400,
-    navigation: { 
-      nextEl: '.swiper-button-next', 
-      prevEl: '.swiper-button-prev' 
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev'
     },
-    pagination: { 
-      el: '.swiper-pagination', 
-      type: 'fraction'                   // „1 / 8“-Stil
-    },
+    pagination: {
+      el: '.swiper-pagination',
+      type: 'fraction'                // „1 / n“
+    }
   });
 </script>
                 
