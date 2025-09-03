@@ -153,6 +153,7 @@ oh<!doctype html>
            <p>   o	Nr. 7: Wohnung Franz</p> 
            <p>   o	Nr. 9: Wohnung Thomas</p> 
            <p>   o	Nr. 10: Wohnung Hans</p>
+
 <!-- Swiper CSS -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
 
@@ -165,24 +166,10 @@ oh<!doctype html>
   }
 
   /* Haupt-Slider */
-  .swiper.main{
-    position: relative;
-    overflow: visible;     /* damit Pfeile/pagination nicht abgeschnitten werden */
-    border-radius: 12px;
-  }
-
-  /* WICHTIG: immer nur 1 Slide sichtbar */
-  .swiper.main .swiper-slide{
-    flex: 0 0 100% !important;
-    max-width: 100% !important;
-  }
-  .swiper.main .swiper-slide img{
-    width: 100%;
-    height: auto;          /* kein Verzerren */
-    display: block;
-    object-fit: cover;
-    border-radius: 12px;
-  }
+.swiper.main{ height: 360px; }
+.swiper.main .swiper-slide img{
+  width:100%; height:100%; object-fit:cover;
+}
 
   /* Zähler „1 / n“ UNTER dem Bild, zentriert */
   .swiper.main .swiper-pagination{
@@ -211,6 +198,12 @@ oh<!doctype html>
   @media (max-width: 600px){
     .gallery-wrap{ max-width: 92%; }
   }
+  @media (min-width: 601px){
+  .swiper-button-prev{ left: -56px; }
+  .swiper-button-next{ right: -56px; }
+  .swiper.main{ overflow: visible; }
+}
+  
 </style>
 
 <div class="gallery-wrap">
